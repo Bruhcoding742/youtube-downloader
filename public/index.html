@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YouTube Downloader</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>📥 YouTube Video Downloader</h1>
+    <p class="subtitle">Download YouTube videos without ads</p>
+
+    <div class="form-section">
+      <input 
+        type="text" 
+        id="videoUrl" 
+        placeholder="Enter YouTube URL..."
+        class="input-field"
+      >
+      
+      <div class="button-group">
+        <button onclick="getInfo()" class="btn btn-info">Get Info</button>
+        <button onclick="downloadVideo()" class="btn btn-download">Download</button>
+      </div>
+    </div>
+
+    <div id="videoInfo" class="video-info hidden">
+      <img id="thumbnail" src="" alt="Video Thumbnail" class="thumbnail">
+      <div class="info-details">
+        <h3 id="videoTitle"></h3>
+        <p><strong>Uploader:</strong> <span id="videoUploader"></span></p>
+        <p><strong>Duration:</strong> <span id="videoDuration"></span></p>
+      </div>
+    </div>
+
+    <div class="format-section hidden" id="formatSection">
+      <h3>Select Format:</h3>
+      <div class="format-buttons">
+        <button onclick="downloadVideo('best')" class="btn btn-small">Best Quality</button>
+        <button onclick="downloadVideo('1080p')" class="btn btn-small">1080p</button>
+        <button onclick="downloadVideo('720p')" class="btn btn-small">720p</button>
+        <button onclick="downloadVideo('audio')" class="btn btn-small">Audio Only</button>
+      </div>
+    </div>
+
+    <div id="status" class="status"></div>
+
+    <div class="downloads-section">
+      <h3>📂 Downloaded Files</h3>
+      <div id="downloadsList" class="downloads-list"></div>
+      <button onclick="listDownloads()" class="btn btn-refresh">Refresh List</button>
+    </div>
+
+    <footer>
+      <p>⚠️ Only download videos you have permission to download.</p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
